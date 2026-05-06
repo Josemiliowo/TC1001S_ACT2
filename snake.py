@@ -19,6 +19,31 @@ def inside(head):
     """Return True if head inside boundaries."""
     return -200 < head.x < 190 and -200 < head.y < 190
 
+def move_food():
+    """Move food randomly one step at a time, staying within bounds."""
+    #Choose a random direction: up, down, left, or right
+    direction = randrange(4)
+    
+    #Create a copy to test the new position
+    new_food = food.copy()
+    
+    if direction == 0:  #Right
+        new_food.x += 10
+    elif direction == 1:  #Left
+        new_food.x -= 10
+    elif direction == 2:  #Up
+        new_food.y += 10
+    else:  #Down
+        new_food.y -= 10
+    
+    #Only move if the new position stays inside the window
+    if inside(new_food):
+        food.x = new_food.x
+        food.y = new_food.y
+    
+    #Schedule the next food movement
+    ontimer(move_food, 500)  #Food moves every 500ms
+
 
 def move():
     """Move snake forward one segment."""
@@ -58,4 +83,5 @@ onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
 move()
+move_food()
 done()
