@@ -1,62 +1,21 @@
-# 🐍 Snake Game
+# List of changes for this file:
+- The food can move randomly one step at a time and must not leave the window
+- Each time the game is run, the snake and the food must have different colors from each other, but randomly, from a series of 5 different colors, except red.
 
-A classic Snake arcade game built with Python's `turtle` graphics library and the `freegames` package.
+## Change 1
+For each tick, a random number is selected, this defines the direction the food will move in that specific tick as long as the boundaries of the screen allows it.
 
-## Description
+## Change 2
+For the second change, a list of 5 possible colors is defined at the top of the code, afterwards, we use the random library to select a color for the snake, then, we cyce in a while until the food has a random color different from the snake.
 
-Guide the snake to eat the green food squares and grow longer. The game ends when the snake hits a wall or runs into itself — the collision square turns red to mark where things went wrong.
-
-## Requirements
-
-- Python 3.x
-- [`freegames`](https://pypi.org/project/freegames/) library
-
-Install the dependency with:
-
-```bash
-pip install freegames
+## Commit tree
 ```
-
-## How to Run
-
-```bash
-python snake.py
+* 4b68e42 (HEAD -> main, origin/main, origin/HEAD) Added random colors for snake and food
+*   63d11ef Merge pull request #1 from GabrielPrzz/main
+|\  
+| * 929b9de Feature nueva-Comida con movimiento, cada 500ms se mueve en una de las 4 direcciones random
+|/  
+* 00e78c9 added readme
+* cddc19b unploaded game
+* 5d4992b Initial commit
 ```
-
-## Controls
-
-| Key | Action |
-|-----|--------|
-| `→` Right Arrow | Move right |
-| `←` Left Arrow  | Move left  |
-| `↑` Up Arrow    | Move up    |
-| `↓` Down Arrow  | Move down  |
-
-## Gameplay
-
-- The snake starts at the center of the screen moving downward.
-- Each time the snake eats the **green** food square, it grows by one segment and the current length is printed to the console.
-- Food is randomly repositioned after being eaten.
-- The game ends if the snake:
-  - Hits the boundary of the play area.
-  - Collides with its own body.
-- The collision point flashes **red** to indicate where the game ended.
-
-## Project Structure
-
-```
-snake.py      # Main game file
-```
-
-## Exercises & Customization Ideas
-
-The following challenges are built into the original source as learning exercises:
-
-1. **Speed** — How do you make the snake faster or slower? *(Hint: look at the `ontimer` delay.)*
-2. **Wrap-around edges** — How can you make the snake go around the edges instead of dying?
-3. **Moving food** — How would you make the food move over time?
-4. **Mouse controls** — Change the snake to respond to mouse clicks instead of arrow keys.
-
-## License
-
-This project is based on the [freegames](https://github.com/grantjenks/free-python-games) library by Grant Jenks, released under the Apache 2.0 License.
